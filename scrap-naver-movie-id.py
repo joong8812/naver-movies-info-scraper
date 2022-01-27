@@ -37,3 +37,8 @@ for i, movie in enumerate(boxoffice_table.values):
 boxoffice_table['네이버코드'] = naver_movie_code # '네이버코드' 컬럼 생성
 print(boxoffice_table.sample)
 boxoffice_table.to_csv('KOBIS_boxoffice_rank_plus_naver_code.csv', index=False) # csv파일로 저장
+
+'''
+역대 박스오피스 (통합전산망 집계 기준): https://www.kobis.or.kr/kobis/business/stat/boxs/findFormerBoxOfficeList.do
+네이버영화 개봉일자 검색: https://movie.naver.com/movie/sdb/browsing/bmovie.naver?open=20140730
+'''
