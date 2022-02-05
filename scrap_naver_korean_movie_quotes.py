@@ -36,11 +36,10 @@ def get_movie_quotes(movie_code, movie_title):
 
 korean_movie_table = pd.read_csv('./naver_korean_movie_list.csv', encoding='utf-8', sep=',') # csv파일 불러오기s
 for i, movie in enumerate(korean_movie_table.values):
-    if i >= 285:
-        movie_title = movie[0]
-        movie_code = movie[1]
-        print(f'##### {i+1} ##### {movie_code} {movie_title}')
+    movie_title = movie[0]
+    movie_code = movie[1]
+    print(f'##### {i+1} ##### {movie_code} {movie_title}')
 
-        df_movie_qoute = get_movie_quotes(movie_code, movie_title)
-        df_movie_qoute.to_csv('naver_korean_movie_qoute.csv', mode='a', index=False, header=True if i == 0 else None)
+    df_movie_qoute = get_movie_quotes(movie_code, movie_title)
+    df_movie_qoute.to_csv('naver_korean_movie_qoute.csv', mode='a', index=False, header=True if i == 0 else None)
 
