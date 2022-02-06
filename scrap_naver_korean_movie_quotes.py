@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+# 명대사 인기순으로 10개 리턴
 def get_movie_quotes(movie_code, movie_title):
     qoute_list = []
     role_list = []
@@ -34,7 +35,7 @@ def get_movie_quotes(movie_code, movie_title):
     return df
 
 
-korean_movie_table = pd.read_csv('./naver_korean_movie_list.csv', encoding='utf-8', sep=',') # csv파일 불러오기s
+korean_movie_table = pd.read_csv('./naver_korean_movie_list.csv', encoding='utf-8', sep=',') # 해당 csv파일은 'scrap_naver_korean_movies.py 에서 생성
 for i, movie in enumerate(korean_movie_table.values):
     movie_title = movie[0]
     movie_code = movie[1]
@@ -43,3 +44,6 @@ for i, movie in enumerate(korean_movie_table.values):
     df_movie_qoute = get_movie_quotes(movie_code, movie_title)
     df_movie_qoute.to_csv('naver_korean_movie_qoute.csv', mode='a', index=False, header=True if i == 0 else None)
 
+'''
+네이버영화 명대사 url: https://movie.naver.com/movie/bi/mi/script.naver?code=39436&order=best
+'''

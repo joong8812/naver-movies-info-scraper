@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
+# 영화 정보를 크롤링 하여 리턴
 def get_movie_info(movie_code, movie_title):
     # sc_ : 스크랩한 데이터
 
@@ -74,7 +76,7 @@ def get_movie_info(movie_code, movie_title):
     return df
 
 
-korean_movie_table = pd.read_csv('./naver_korean_movie_list.csv', encoding='utf-8', sep=',') # csv파일 불러오기s
+korean_movie_table = pd.read_csv('./naver_korean_movie_list.csv', encoding='utf-8', sep=',') # 해당 csv파일은 'scrap_naver_korean_movies.py 에서 생성
 for i, movie in enumerate(korean_movie_table.values):
     movie_title = movie[0]
     movie_code = movie[1]
